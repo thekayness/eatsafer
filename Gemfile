@@ -10,13 +10,14 @@ gem 'figaro'
 gem 'active_model_serializers'
 gem 'rspec-rails'
 gem 'geocoder'
+#this one doesn't work via rails-assets:
+gem 'angular-rails-templates'
 
 ##RAILS-ASSETS
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
   gem 'rails-assets-ngmap'
-  gem 'rails-assets-pitr--angular-rails-templates'
   gem 'rails-assets-angular-ui-router'
 end
 

@@ -12,7 +12,7 @@
 //
 //= require angular
 //= require ngmap
-//= require pitr--angular-rails-templates
+//= angular-rails-templates
 //= require angular-ui-router
 //= require bootstrap
 //= require jquery
