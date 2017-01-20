@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  restaurant_id: 1
+  license_no: MyString
+  lic_issue_date: MyString
+  lic_exp_date: MyString
+  result: MyString
+  result_date: MyString
+  viol_code: MyString
+  viol_level: MyString
+  viol_desc: MyString
+  viol_date: MyString
+  comments: MyText
+
+two:
+  restaurant_id: 1
+  license_no: MyString
+  lic_issue_date: MyString
+  lic_exp_date: MyString
+  result: MyString
+  result_date: MyString
+  viol_code: MyString
+  viol_level: MyString
+  viol_desc: MyString
+  viol_date: MyString
+  comments: MyText
