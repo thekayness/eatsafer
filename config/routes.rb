@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'application#boot'
 	
   get '/search-name/:name', to: 'search#name'
 
