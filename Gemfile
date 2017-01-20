@@ -9,6 +9,7 @@ end
 gem 'figaro'
 gem 'active_model_serializers'
 gem 'rspec-rails'
+gem 'geocoder'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
