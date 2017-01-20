@@ -11,6 +11,12 @@ gem 'active_model_serializers'
 gem 'rspec-rails'
 gem 'geocoder'
 
+##RAILS-ASSETS
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+end
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'

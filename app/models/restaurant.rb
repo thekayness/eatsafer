@@ -8,7 +8,7 @@ class Restaurant < ApplicationRecord
 		where("name LIKE?", "%#{search_terms}%")
 	end
 
-	def full_address
+	def full_street_address
 		if address
 			[address.squeeze(" "), city, state].compact.join(', ')
 		end

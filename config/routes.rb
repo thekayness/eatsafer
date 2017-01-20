@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'home#index'
 	
-  get '/name-search', to: 'search#name'
+  get '/search-name/:name', to: 'search#name'
 
-  get '/address-search', to: 'search#address'
+  get '/search-address/:address', to: 'search#address'
 
   get '/restaurants/:id', to: 'restaurant#show'
 end

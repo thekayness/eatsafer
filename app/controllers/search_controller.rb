@@ -5,7 +5,7 @@ class SearchController < ApplicationController
 	end
 
 	def address
-	    @restaurants = Restaurant.near(params[:address], 0.5)
+	    @restaurants = Restaurant.near(params[:address], 0.1)
 	    render json: @restaurants		
 	end
 end
