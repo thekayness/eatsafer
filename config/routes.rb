@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'home#index'
+	
+  get '/name-search', to: 'search#name'
+
+  get '/address-search', to: 'search#address'
+
+  get '/restaurants/:id', to: 'restaurant#show'
 end
