@@ -17,4 +17,7 @@
 //= require angular-rails-templates
 //= require angular-ui-router
 //= require bootstrap
+//= require ./angular/app.module
+//= require ./angular/navbar/navbar.module
+//= require_tree ./angular/navbar
 //= require_tree .

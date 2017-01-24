@@ -21,5 +21,8 @@ module Eatsafer
         request_specs: false,
         controller_specs: true
     end
+
+    #dear god plz work
+    config.angular_templates.ignore_prefix  = %w(templates/)
   end
 end

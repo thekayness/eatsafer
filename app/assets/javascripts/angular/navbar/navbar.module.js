@@ -1,5 +1,5 @@
 angular
-	.module('root', [
+	.module('app.navbar', [
 		'templates',
 		'ui.router'
-	]);
+		]);
