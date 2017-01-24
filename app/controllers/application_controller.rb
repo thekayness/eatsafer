@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include ActionController::Serialization
 
-  def boot
-  	render "bootstrap_angular"
+  def index
   end
 end
