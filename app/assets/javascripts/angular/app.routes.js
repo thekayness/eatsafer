@@ -12,6 +12,10 @@
 				url: '/about',
 				templateUrl: 'angular/home/about.html'
 			})
+			.state('search', {
+				url: '/search',
+				templateUrl: 'angular/search/search.html'
+			});
 	}
 
     angular

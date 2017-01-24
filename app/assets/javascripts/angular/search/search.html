@@ -1,0 +1,29 @@
+<div class="container">
+	<form ng-submit="" style="margin-top:30px;">
+		<h3>Search By Establishment Name</h3>
+		<div class="form-group">
+			<input type="text" placeholder="name" ng-model="name" class="form-control">
+			<input type="checkbox"> Check here to filter for only restaurants with an active status.
+		</div>
+		<button class="btn btn-primary" type="submit">Search</button>
+	</form>
+
+
+	<form ng-submit="" style="margin-top:30px;">
+		<h3>Search Near Address</h3>
+		<div class="form-group">
+			<input type="text" placeholder="address" ng-model="address" class="form-control">
+		</div>
+		<button class="btn btn-primary" type="submit">Search</button>
+	</form>
+
+
+	<div class="repeat-here">
+		<span style="font-size:20px; margin-left:10px;">
+			<a href="#">Learn more about: </a>
+			 					
+		</span>
+		<div ui-view></div>
+	</div>
+
+</div> <!-- container -->
