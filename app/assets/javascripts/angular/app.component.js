@@ -6,6 +6,7 @@
     	.component('app', {
     		template: `
     		<navbar></navbar>
+    		<div ui-view></div>
     		`
     	})
 
