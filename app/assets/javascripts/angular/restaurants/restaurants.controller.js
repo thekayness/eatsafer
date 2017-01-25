@@ -2,20 +2,45 @@
     'use strict';
 
     angular
-        .module('app.restaurants')
+        .module('app')
         .controller('RestaurantController', RestaurantController);
 
-    RestaurantController.$inject = [];
+    RestaurantController.$inject = ['restaurantsServ', '$state', '$stateParams'];
 
-    function RestaurantController(restaurants, restaurant) {
+    function RestaurantController(restaurantsServ, $state, $stateParams) {
 
         var vm = this;
         vm.restaurants = [];
-        if (restaurants) {
-            vm.restaurants = restaurants.data;    
+
+        vm.searchName = function() {
+            console.log(vm.nameParam);
+            if(!vm.nameParam || vm.nameParam === '') {return;}
+            return restaurantsServ.getRestaurantsByName(vm.nameParam)
+                .then(function(results) {
+                    console.log(results.data);
+                    vm.restaurants = results.data;
+                    vm.nameParam = '';
+                    return vm.restaurants;
+                });
         }
-        
-        console.log(restaurants);
+
+        vm.searchAddr = function() {
+            if(!vm.nameParam || vm.nameParam === '') {return;}
+            return restaurantsServ.getRestaurantsByAddr(vm.addrParam)
+                .then(function(results) {
+                    console.log(results.data);
+                    vm.restaurants = results.data;
+                    vm.addrParam = '';
+                    return vm.restaurants;
+                });
+        }
+
+        if($stateParams.id) {
+            restaurantsServ.getRestaurant($stateParams.id)
+                .then(function(results) {
+                    vm.restaurant = results.data;
+                });
+        }
 
     }
 })();

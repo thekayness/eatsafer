@@ -4,10 +4,8 @@
 
     angular.module('app', [
     	'ui.router',
-    	'templates',
-        'app.navbar',
-        'app.search',
-        'app.restaurants'
+    	'templates'
+
     ]);
 
 })();

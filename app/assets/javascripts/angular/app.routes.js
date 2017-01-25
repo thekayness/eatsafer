@@ -15,18 +15,16 @@
 			.state('search', {
 				url: '/search',
 				templateUrl: 'angular/search/search.html',
-				controller: 'SearchController as search'
+				controller: 'RestaurantController as rest'
 			})
 			.state('restaurant', {
 				url: 'restaurant/{id}',
 				templateUrl: 'angular/restaurants/restaurant.html',
-				controller: 'RestaurantController as rest',
-				resolve: {
-				 	restaurant: ['$stateParams', 'restaurantsServ', function($stateParams, restaurantsServ) {
-				    	return restaurantsServ.getRestaurant($stateParams.id);
-				  	}]
-				}
+				controller: 'RestaurantController as rest'
 			});
+
+		$urlRouterProvider
+			.otherwise('home');
 
 	}
 

@@ -1,23 +1,31 @@
 <div class="container">
-	<form ng-submit="search.searchName()" style="margin-top:30px;">
+	<form ng-submit="rest.searchName()" style="margin-top:30px;">
 		<h3>Search By Establishment Name</h3>
 		<div class="form-group">
-			<input type="text" placeholder="name" ng-model="search.nameParam" class="form-control">
+			<input type="text" placeholder="name" ng-model="rest.nameParam" class="form-control">
 			<input type="checkbox"> Check here to filter for only restaurants with an active status.
 		</div>
 		<button class="btn btn-primary" type="submit">Search</button>
 	</form>
 
 
-	<form ng-submit="search.searchAddr()" style="margin-top:30px;">
+	<form ng-submit="rest.searchAddr()" style="margin-top:30px;">
 		<h3>Search Near Address</h3>
 		<div class="form-group">
-			<input type="text" placeholder="address" ng-model="search.addrParam" class="form-control">
+			<input type="text" placeholder="address" ng-model="rest.addrParam" class="form-control">
 		</div>
 
 		<button class="btn btn-primary" type="submit">Search</button>
 	</form>
 
-	<restaurants restaurants="search.restaurantResults"></restaurants>
+	<div ng-model"rest.restaurants" ng-repeat="restaurant in rest.restaurants">
+	<span style="font-size:20px; margin-left:10px;">
+		<a ui-sref="restaurant({ id : restaurant.id })">Learn more about: </a>
+
+		{{restaurant.name}}
+
+	</span>
+
+</div>
 
 </div> <!-- container -->

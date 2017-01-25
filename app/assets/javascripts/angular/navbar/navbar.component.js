@@ -6,6 +6,6 @@
 	};
 
 	angular
-	  .module('app.navbar')
+	  .module('app')
 	  .component('navbar', navbar);
 })();
