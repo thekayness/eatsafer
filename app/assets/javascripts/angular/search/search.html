@@ -20,8 +20,8 @@
 	
 	<div ng-model"search.restaurants" ng-repeat="restaurant in search.restaurants">
 		<span style="font-size:20px; margin-left:10px;">
-			<a href="#/restaurants/{{restaurant.id}}">Learn more about: </a>
-	    	
+			<a ui-sref="/restaurants/{{restaurant.id}}">Learn more about: </a>
+	
 			{{restaurant.name}}
 			 					
 		</span>

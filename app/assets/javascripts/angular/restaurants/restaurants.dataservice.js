@@ -10,7 +10,8 @@
 
     return {
         getRestaurantsByName: getRestaurantsByName,
-        getRestaurantsByAddr: getRestaurantsByAddr
+        getRestaurantsByAddr: getRestaurantsByAddr,
+        getRestaurant: getRestaurant
     }
 
     function getRestaurantsByName(nameParam) {
@@ -23,6 +24,13 @@
     function getRestaurantsByAddr(addrParam) {
     	console.log("in service")
         return $http.get('/search-address/' + addrParam)
+            .then(requestResults.getRestaurantsComplete)
+            .catch(requestResults.getRestaurantsFailed);
+    }
+
+    function getRestaurant(id) {
+    	console.log("in service")
+        return $http.get('/restaurants/' + id)
             .then(requestResults.getRestaurantsComplete)
             .catch(requestResults.getRestaurantsFailed);
     }
