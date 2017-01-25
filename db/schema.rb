@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125150036) do
-
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "body"
-    t.string  "author"
-    t.integer "restaurant_id"
-    t.index ["restaurant_id"], name: "index_comments_on_restaurant_id", using: :btree
-  end
+ActiveRecord::Schema.define(version: 20170125202334) do
 
   create_table "inspections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "restaurant_id"
