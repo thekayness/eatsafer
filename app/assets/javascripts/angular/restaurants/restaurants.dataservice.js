@@ -9,7 +9,8 @@
 	function restaurants($http, requestResults) {
 
     return {
-        getRestaurantsByName: getRestaurantsByName
+        getRestaurantsByName: getRestaurantsByName,
+        getRestaurantsByAddr: getRestaurantsByAddr
     }
 
     function getRestaurantsByName(nameParam) {
@@ -17,15 +18,13 @@
         return $http.get('/search-name/' + nameParam)
             .then(requestResults.getRestaurantsComplete)
             .catch(requestResults.getRestaurantsFailed);
+    }
 
-        function getByNameComplete(response) {
-        	console.log(response.data);
-            return response.data;
-        }
-
-        function getByNameFailed(error) {
-            logger.error('XHR Failed for getByName.' + error.data);
-        }
+    function getRestaurantsByAddr(addrParam) {
+    	console.log("in service")
+        return $http.get('/search-address/' + addrParam)
+            .then(requestResults.getRestaurantsComplete)
+            .catch(requestResults.getRestaurantsFailed);
     }
 }
 		// var restaurantsObj = {

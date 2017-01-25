@@ -1,5 +1,5 @@
 <div class="container">
-	<form ng-submit="search.activate()" style="margin-top:30px;">
+	<form ng-submit="search.activateNameSearch()" style="margin-top:30px;">
 		<h3>Search By Establishment Name</h3>
 		<div class="form-group">
 			<input type="text" placeholder="name" ng-model="search.nameParam" class="form-control">
@@ -9,11 +9,12 @@
 	</form>
 
 
-	<form ng-submit="search.searchAddr()" style="margin-top:30px;">
+	<form ng-submit="search.activateAddrSearch()" style="margin-top:30px;">
 		<h3>Search Near Address</h3>
 		<div class="form-group">
-			<input type="text" placeholder="address" ng-model="addrParam" class="form-control">
+			<input type="text" placeholder="address" ng-model="search.addrParam" class="form-control">
 		</div>
+
 		<button class="btn btn-primary" type="submit">Search</button>
 	</form>
 	

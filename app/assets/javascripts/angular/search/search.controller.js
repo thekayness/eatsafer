@@ -14,10 +14,10 @@
 
         // activate();
 
-    vm.activate = function() {
+    vm.activateNameSearch = function() {
         console.log("in activate");
         return searchName().then(function() {
-            console.log('search performed?');
+            console.log('name search performed?');
         });
     }
 
@@ -30,13 +30,23 @@
                 return vm.restaurants;
             });
     }
-        // vm.searchName = function() {
-        //     if(!vm.nameParam || vm.nameParam === '') {return;}
-        //     var wat = restaurants.getRestaurantsByName(vm.nameParam);
-        //     console.log(wat);
-        //     vm.nameParam = '';  
-        //     return vm.restaurants;
-        // }
+
+    vm.activateAddrSearch = function() {
+        console.log(vm.addrParam);
+        return searchAddr().then(function() {
+            console.log('addr search performed?');
+        });
+    }
+
+    function searchAddr() {
+        return restaurants.getRestaurantsByAddr(vm.addrParam)
+            .then(function(data) {
+                console.log(data);
+                vm.restaurants = data;
+                vm.addrParam = '';
+                return vm.restaurants;
+            });
+    }
 
         // vm.searchAddr = function() {
         //     if(!vm.addrParam || vm.addrParam === '') {return;}
