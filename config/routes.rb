@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/search-address/:address', to: 'search#address'
 
   get '/restaurants/:id', to: 'restaurant#show'
+
+  post '/restaurants/:id', to: 'restaurant#add_user_comment'
 end

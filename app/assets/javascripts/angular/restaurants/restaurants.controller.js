@@ -11,6 +11,7 @@
 
         var vm = this;
         vm.restaurants = [];
+        vm.editMode = false;
 
         vm.searchName = function() {
             console.log(vm.nameParam);
@@ -25,7 +26,8 @@
         }
 
         vm.searchAddr = function() {
-            if(!vm.nameParam || vm.nameParam === '') {return;}
+            if(!vm.addrParam || vm.addrParam === '') {return;}
+            console.log("hi");
             return restaurantsServ.getRestaurantsByAddr(vm.addrParam)
                 .then(function(results) {
                     console.log(results.data);
@@ -39,6 +41,15 @@
             restaurantsServ.getRestaurant($stateParams.id)
                 .then(function(results) {
                     vm.restaurant = results.data;
+                });
+        }
+        vm.addUserComment = function() {
+            if(!vm.commentParams.body || vm.commentParams.body ===) {return;}
+            if(!vm.commentParams.author || vm.commentParams.author ===) {return;}
+            return restaurantsServ.postRestaurantUserComment(vm.restaurant.id, vm.commentParams)
+                .then(function(results) {
+                    console.log(results.data);
+                    vm.resaurant = results.data;
                 });
         }
 

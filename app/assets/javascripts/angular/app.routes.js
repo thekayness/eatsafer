@@ -23,8 +23,8 @@
 				controller: 'RestaurantController as rest'
 			});
 
-		$urlRouterProvider
-			.otherwise('home');
+		// $urlRouterProvider
+		// 	.otherwise('home');
 
 	}
 
