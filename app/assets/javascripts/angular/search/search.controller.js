@@ -5,55 +5,36 @@
         .module('app.search')
         .controller('SearchController', SearchController);
 
-    SearchController.$inject = ['restaurants'];
+    SearchController.$inject = ['restaurantsServ'];
 
-    function SearchController(restaurants) {
+    function SearchController(restaurantsServ) {
 
         var vm = this;
-        vm.restaurants = [];
 
-        // activate();
+        console.log("IN THE search CONTROLLER")
 
-    vm.activateNameSearch = function() {
-        console.log("in activate");
-        return searchName().then(function() {
-            console.log('name search performed?');
-        });
-    }
+        vm.searchName = function() {
+            console.log(vm.nameParam);
+            if(!vm.nameParam || vm.nameParam === '') {return;}
+            return restaurantsServ.getRestaurantsByName(vm.nameParam)
+                .then(function(results) {
+                    console.log(results.data);
+                    vm.restaurantResults = results.data;
+                    vm.nameParam = '';
+                    return vm.restaurantResults;
+                });
+        }
 
-    function searchName() {
-        return restaurants.getRestaurantsByName(vm.nameParam)
-            .then(function(data) {
-                console.log(data);
-                vm.restaurants = data;
-                vm.nameParam = '';
-                return vm.restaurants;
-            });
-    }
+        vm.searchAddr = function() {
+            if(!vm.nameParam || vm.nameParam === '') {return;}
+            return restaurantsServs.getRestaurantsByAddr(vm.addrParam)
+                .then(function(results) {
+                    console.log(results.data);
+                    vm.restaurantResults = results.data;
+                    vm.addrParam = '';
+                    return vm.restaurantResults;
+                });
+        }
 
-    vm.activateAddrSearch = function() {
-        console.log(vm.addrParam);
-        return searchAddr().then(function() {
-            console.log('addr search performed?');
-        });
-    }
-
-    function searchAddr() {
-        return restaurants.getRestaurantsByAddr(vm.addrParam)
-            .then(function(data) {
-                console.log(data);
-                vm.restaurants = data;
-                vm.addrParam = '';
-                return vm.restaurants;
-            });
-    }
-
-        // vm.searchAddr = function() {
-        //     if(!vm.addrParam || vm.addrParam === '') {return;}
-        //     vm.restaurants = restaurants.getRestaurantsByAddr(vm.addrParam);
-        //     // console.log(vm.restaurants);
-        //     return vm.restaurants;
-        // };        
-        
     }
 })();

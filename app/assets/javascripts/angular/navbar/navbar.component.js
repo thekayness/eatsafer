@@ -2,8 +2,7 @@
 	'use strict';
 
 	var navbar = {
-		templateUrl: 'angular/navbar/navbar.html',
-		controller: function() {}
+		templateUrl: 'angular/navbar/navbar.html'
 	};
 
 	angular

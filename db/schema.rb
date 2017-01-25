@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170120161055) do
+ActiveRecord::Schema.define(version: 20170125150036) do
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "body"
+    t.string  "author"
+    t.integer "restaurant_id"
+    t.index ["restaurant_id"], name: "index_comments_on_restaurant_id", using: :btree
+  end
 
   create_table "inspections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "restaurant_id"
@@ -41,6 +48,14 @@ ActiveRecord::Schema.define(version: 20170120161055) do
     t.float    "latitude",    limit: 24
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "email"
+    t.string   "username"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

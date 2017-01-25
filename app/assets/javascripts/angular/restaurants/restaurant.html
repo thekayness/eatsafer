@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="page-header">
 		<h3>Results for:
-			<span>{{restaurant.name}}</span>
+			<span>{{rest.restaurant.name}}</span>
 		</h3>
 		<p></p>
 	</div>
@@ -21,7 +21,7 @@
 	    Number of Critical Failures:
 	  </li>
 	</ul>
-	<div ng-repeat="inspection in restaurant.inspections | orderBy: 'result_date'">
+	<div ng-repeat="inspection in rest.restaurant.inspections | orderBy: 'result_date'">
 		<span class="glyphicon glyphicon-cutlery" ng-click=""></span>
 		<span style="font-size:20px; margin-left:10px;">
 		Flags: {{inspection.flags}}

@@ -1,5 +1,5 @@
 <div class="container">
-	<form ng-submit="search.activateNameSearch()" style="margin-top:30px;">
+	<form ng-submit="search.searchName()" style="margin-top:30px;">
 		<h3>Search By Establishment Name</h3>
 		<div class="form-group">
 			<input type="text" placeholder="name" ng-model="search.nameParam" class="form-control">
@@ -9,7 +9,7 @@
 	</form>
 
 
-	<form ng-submit="search.activateAddrSearch()" style="margin-top:30px;">
+	<form ng-submit="search.searchAddr()" style="margin-top:30px;">
 		<h3>Search Near Address</h3>
 		<div class="form-group">
 			<input type="text" placeholder="address" ng-model="search.addrParam" class="form-control">
@@ -17,14 +17,7 @@
 
 		<button class="btn btn-primary" type="submit">Search</button>
 	</form>
-	
-	<div ng-model"search.restaurants" ng-repeat="restaurant in search.restaurants">
-		<span style="font-size:20px; margin-left:10px;">
-			<a ui-sref="/restaurants/{{restaurant.id}}">Learn more about: </a>
-	
-			{{restaurant.name}}
-			 					
-		</span>
 
-	</div>
+	<restaurants restaurants="search.restaurantResults"></restaurants>
+
 </div> <!-- container -->
