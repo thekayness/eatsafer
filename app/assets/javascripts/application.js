@@ -19,5 +19,9 @@
 //= require bootstrap
 //= require ./angular/app.module
 //= require ./angular/navbar/navbar.module
+//= require ./angular/search/search.module
+//= require ./angular/restaurants/restaurants.module
 //= require_tree ./angular/navbar
+//= require_tree ./angular/search
+//= require_tree ./angular/restaurants
 //= require_tree .

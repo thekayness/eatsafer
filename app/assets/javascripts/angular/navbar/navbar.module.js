@@ -3,8 +3,9 @@
 	'use strict';
 
 	angular
-	.module('app.navbar', [
-		'templates',
-		'ui.router'
+		.module('app.navbar', [
+			'templates',
+			'ui.router'
 		]);
+
 })();

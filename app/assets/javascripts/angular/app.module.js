@@ -5,7 +5,9 @@
     angular.module('app', [
     	'ui.router',
     	'templates',
-        'app.navbar'
+        'app.navbar',
+        'app.search',
+        'app.restaurants'
     ]);
 
 })();

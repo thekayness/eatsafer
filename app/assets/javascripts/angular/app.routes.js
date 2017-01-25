@@ -14,7 +14,8 @@
 			})
 			.state('search', {
 				url: '/search',
-				templateUrl: 'angular/search/search.html'
+				templateUrl: 'angular/search/search.html',
+				controller: 'SearchController'
 			});
 	}
 
