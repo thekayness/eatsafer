@@ -32,6 +32,7 @@
 
 	    function postRestaurantUserComment(id, commentParams) {
 	    	console.log("in service")
+	    	
 	        return $http.post('/restaurants/' + id, commentParams);
 	    }
 	}

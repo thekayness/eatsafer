@@ -21,4 +21,5 @@
 //= require_tree ./angular/navbar
 //= require_tree ./angular/search
 //= require_tree ./angular/restaurants
+//= require ./angular/restaurants/titlefilter
 //= require_tree .

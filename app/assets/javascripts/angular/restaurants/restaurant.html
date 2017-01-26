@@ -1,11 +1,36 @@
 
 <div class="container">
+	
 	<div class="page-header">
 		<h3>Results for:
 			<span>{{rest.restaurant.name}}</span>
 		</h3>
-		<p></p>
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">What people are saying:</div>
+
+		  <!-- List group -->
+		  <ul class="list-group" ng-model="rest.restaurant.user_comments" ng-repeat="comment in rest.restaurant.user_comments">
+		        <h4 class="list-group-item-heading">{{comment.author}} says:</h4>
+    			<p class="list-group-item-text">{{comment.body}}</p>
+		  </ul>
+		</div>
+		
 	</div>
+
+	<form name="commentForm" ng-submit="rest.addUserComment()" style="margin-top:30px;" novalidate>
+		<h3>Add a comment:</h3>
+		<div class="form-group">
+			<input type="text" placeholder="penny for your thoughts" ng-model="rest.commentParams.body" name="body" class="form-control" ng-minlength="3" ng-maxlength="20">
+			{{commentForm.body.$valid}}
+			<p ng-show="commentForm.body.$error.minlength" class="help-block">Don't be shy, say something.</p>
+            <p ng-show="commentForm.body.$error.maxlength" class="help-block">You talk too much.</p>
+			<input type="text" placeholder="author" ng-model="rest.commentParams.author" class="form-control" name="author" required>
+			<p ng-show="commentForm.author.$invalid && !commentForm.author.$pristine" class="help-block" >Please provide a name.</p>
+		</div>
+
+		<button ng-disabled="userForm.$invalid" class="btn btn-primary" type="submit">Join the discussion!</button>
+	</form>
 
 	<ul class="list-group">
 	  <li class="list-group-item">
@@ -21,10 +46,10 @@
 	    Number of Critical Failures:
 	  </li>
 	</ul>
+
 	<div ng-repeat="inspection in rest.restaurant.inspections | orderBy: 'result_date'">
 		<span class="glyphicon glyphicon-cutlery" ng-click=""></span>
 		<span style="font-size:20px; margin-left:10px;">
-		Flags: {{inspection.flags}}
 		Inspection result: {{inspection.result}} - on {{inspection.result_date}}
 			Comments: {{inspection.comments}}
 		</span>

@@ -17,14 +17,14 @@
 				templateUrl: 'angular/search/search.html',
 				controller: 'RestaurantController as rest'
 			})
-			.state('restaurant', {
-				url: 'restaurant/{id}',
+			.state('restaurants', {
+				url: '/restaurants/:id',
 				templateUrl: 'angular/restaurants/restaurant.html',
 				controller: 'RestaurantController as rest'
 			});
 
-		// $urlRouterProvider
-		// 	.otherwise('home');
+		$urlRouterProvider
+			.otherwise('home');
 
 	}
 

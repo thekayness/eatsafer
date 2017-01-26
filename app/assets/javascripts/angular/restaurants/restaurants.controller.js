@@ -5,13 +5,26 @@
         .module('app')
         .controller('RestaurantController', RestaurantController);
 
-    RestaurantController.$inject = ['restaurantsServ', '$state', '$stateParams'];
+    RestaurantController.$inject = [
+        'restaurantsServ',  
+        '$state', 
+        '$stateParams',
+        '$filter'
+    ];
 
-    function RestaurantController(restaurantsServ, $state, $stateParams) {
+    function RestaurantController(
+            restaurantsServ, 
+            $state, 
+            $stateParams) {
 
         var vm = this;
         vm.restaurants = [];
-        vm.editMode = false;
+        vm.comment = {
+            user_comment: {
+                restaurant_id : ''
+            }
+        };
+        // vm.filter = {};
 
         vm.searchName = function() {
             console.log(vm.nameParam);
@@ -38,20 +51,35 @@
         }
 
         if($stateParams.id) {
+            console.log('Hi');  
             restaurantsServ.getRestaurant($stateParams.id)
                 .then(function(results) {
                     vm.restaurant = results.data;
+                    console.log(vm.restaurant);
                 });
         }
+
         vm.addUserComment = function() {
-            if(!vm.commentParams.body || vm.commentParams.body ===) {return;}
-            if(!vm.commentParams.author || vm.commentParams.author ===) {return;}
-            return restaurantsServ.postRestaurantUserComment(vm.restaurant.id, vm.commentParams)
+            if(!vm.commentParams.body || vm.commentParams.body === "") {return;}
+            if(!vm.commentParams.author || vm.commentParams.author === "") {return;}
+            
+            
+            vm.comment.user_comment = vm.commentParams;
+            vm.comment.user_comment.restaurant_id = vm.restaurant.id;
+            console.log(vm.comment);
+            return restaurantsServ.postRestaurantUserComment(vm.restaurant.id, vm.comment)
                 .then(function(results) {
                     console.log(results.data);
-                    vm.resaurant = results.data;
+                    console.log(vm.restaurant.user_comments);
+                    vm.restaurant.user_comments.push(results.data);
+                    vm.commentParams.body = "";
+                    vm.commentParams.author = "";
                 });
         }
+        // vm.refilterActive = function() {
+        //     restaurantsFilter.filterActive(vm.restaurants, vm.restaurantStatus);
+        // }
+        // vm.refilterActive();
 
     }
 })();

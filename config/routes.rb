@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   get '/restaurants/:id', to: 'restaurant#show'
 
-  post '/restaurants/:id', to: 'restaurant#add_user_comment'
+  post '/restaurants/:id', to: 'user_comment#create'
 end

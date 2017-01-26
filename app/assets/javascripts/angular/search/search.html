@@ -3,7 +3,7 @@
 		<h3>Search By Establishment Name</h3>
 		<div class="form-group">
 			<input type="text" placeholder="name" ng-model="rest.nameParam" class="form-control">
-			<input type="checkbox"> Check here to filter for only restaurants with an active status.
+			<input ng-model="active" type="checkbox"> Check here to filter for only restaurants with an active status.
 		</div>
 		<button class="btn btn-primary" type="submit">Search</button>
 	</form>
@@ -18,11 +18,11 @@
 		<button class="btn btn-primary" type="submit">Search</button>
 	</form>
 
-	<div ng-model"rest.restaurants" ng-repeat="restaurant in rest.restaurants">
+	<div ng-model"rest.restaurants" ng-repeat="restaurant in rest.restaurants | activeFilter:active ">
 	<span style="font-size:20px; margin-left:10px;">
-		<a ui-sref="restaurant({ id : restaurant.id })">Learn more about: </a>
+		<a ui-sref="restaurants({ id : restaurant.id })">Learn more about: </a>
 
-		{{restaurant.name}}
+		{{restaurant.name | titleCase}}
 
 	</span>
 

@@ -12,6 +12,8 @@ gem 'rspec-rails'
 gem 'geocoder'
 #this one doesn't work via rails-assets:
 gem 'angular-rails-templates'
+gem 'responders'
+gem 'pry'
 
 ##RAILS-ASSETS
 source 'https://rails-assets.org' do
