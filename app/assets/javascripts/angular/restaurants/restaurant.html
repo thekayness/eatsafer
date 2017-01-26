@@ -22,7 +22,7 @@
 		<h3>Add a comment:</h3>
 		<div class="form-group">
 			<input type="text" placeholder="penny for your thoughts" ng-model="rest.commentParams.body" name="body" class="form-control" ng-minlength="3" ng-maxlength="20">
-			{{commentForm.body.$valid}}
+			{{commentForm.author.$valid}}
 			<p ng-show="commentForm.body.$error.minlength" class="help-block">Don't be shy, say something.</p>
             <p ng-show="commentForm.body.$error.maxlength" class="help-block">You talk too much.</p>
 			<input type="text" placeholder="author" ng-model="rest.commentParams.author" class="form-control" name="author" required>
@@ -32,7 +32,7 @@
 		<button ng-disabled="userForm.$invalid" class="btn btn-primary" type="submit">Join the discussion!</button>
 	</form>
 
-	<ul class="list-group">
+<!-- 	<ul class="list-group">
 	  <li class="list-group-item">
 	    <span class="badge"></span>
 	    Total number of reports:
@@ -45,7 +45,7 @@
 	    <span class="badge"></span>
 	    Number of Critical Failures:
 	  </li>
-	</ul>
+	</ul> -->
 
 	<div ng-repeat="inspection in rest.restaurant.inspections | orderBy: 'result_date'">
 		<span class="glyphicon glyphicon-cutlery" ng-click=""></span>
