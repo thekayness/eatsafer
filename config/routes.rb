@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/restaurants/:id', to: 'restaurant#show'
 
   post '/restaurants/:id', to: 'user_comment#create'
+
+  get '/recent', to: 'restaurant#recent'
 end

@@ -17,9 +17,13 @@
 //= require angular-rails-templates
 //= require angular-ui-router
 //= require bootstrap
+//= require lodash/lodash
+//= require angular-simple-logger/dist/angular-simple-logger
+//= require angular-google-maps/dist/angular-google-maps
 //= require ./angular/app.module
 //= require_tree ./angular/navbar
 //= require_tree ./angular/search
 //= require_tree ./angular/restaurants
 //= require ./angular/restaurants/titlefilter
+//= require_tree ./angular/recent
 //= require_tree .

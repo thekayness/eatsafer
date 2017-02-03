@@ -3,7 +3,6 @@
 
     function configRoutes($stateProvider, $urlRouterProvider) {
     	$stateProvider
-    		//home state obvy
 			.state('home', {
 				url: '/home',
 				templateUrl: 'angular/home/home.html'
@@ -20,6 +19,19 @@
 			.state('restaurants', {
 				url: '/restaurants/:id',
 				templateUrl: 'angular/restaurants/restaurant.html',
+				controller: 'RestaurantController as rest'
+			})
+			.state('recent', {
+				url: '/recent-reports',
+				params: {
+					page: 'recent-reports'
+				},
+				templateUrl: 'angular/recent/recent.html',
+				controller: 'RestaurantController as rest'
+			})
+			.state('map',{
+				url: '/map',
+				templateUrl: 'angular/recent/map.html',
 				controller: 'RestaurantController as rest'
 			});
 

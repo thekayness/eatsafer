@@ -12,7 +12,8 @@
 	        getRestaurantsByName: getRestaurantsByName,
 	        getRestaurantsByAddr: getRestaurantsByAddr,
 	        getRestaurant: getRestaurant,
-	        postRestaurantUserComment: postRestaurantUserComment
+	        postRestaurantUserComment: postRestaurantUserComment,
+	        getRecentReports: getRecentReports
 	    }
 
 	    function getRestaurantsByName(nameParam) {
@@ -34,6 +35,10 @@
 	    	console.log("in service")
 	    	
 	        return $http.post('/restaurants/' + id, commentParams);
+	    }
+
+	    function getRecentReports() {
+	    	return $http.get('/recent');
 	    }
 	}
 

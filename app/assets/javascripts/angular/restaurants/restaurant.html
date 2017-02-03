@@ -22,7 +22,7 @@
 		<h3>Add a comment:</h3>
 		<div class="form-group">
 			<input type="text" placeholder="penny for your thoughts" ng-model="rest.commentParams.body" name="body" class="form-control" ng-minlength="3" ng-maxlength="20">
-			{{commentForm.author.$valid}}
+
 			<p ng-show="commentForm.body.$error.minlength" class="help-block">Don't be shy, say something.</p>
             <p ng-show="commentForm.body.$error.maxlength" class="help-block">You talk too much.</p>
 			<input type="text" placeholder="author" ng-model="rest.commentParams.author" class="form-control" name="author" required>

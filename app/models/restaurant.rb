@@ -14,4 +14,12 @@ class Restaurant < ApplicationRecord
 			[address.squeeze(" "), city, state].compact.join(', ')
 		end
 	end
+
+	def self.recent
+		joins(:inspections).merge(Inspection.order(date_result: :desc)).limit(5)
+	end
+
+	def order_inspections
+		inspections.order(date_result: :desc)
+	end
 end

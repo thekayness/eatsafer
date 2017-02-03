@@ -19,7 +19,6 @@ gem 'pry'
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
-  gem 'rails-assets-ngmap'
   gem 'rails-assets-angular-ui-router'
 end
 

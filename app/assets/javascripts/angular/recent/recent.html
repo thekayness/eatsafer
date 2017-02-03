@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Most Recent Reports</h2>
+  <p>These are the restaurants with the most recent reports:</p>            
+  <table class="table" ng-model="rest.recent">
+    <thead>
+      <tr>
+        <th>Restaurant</th>
+        <th>Report Date</th>
+        <th>Report Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="restaurant in rest.recent">
+        <td>{{restaurant.name}}</td>
+        <td>{{restaurant.inspections[0].result_date}}</td>
+        <td>{{restaurant.inspections[0].viol_level}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

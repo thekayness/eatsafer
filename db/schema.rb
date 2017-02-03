@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170125212659) do
     t.text     "comments",       limit: 65535
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.date     "date_result"
   end
 
   create_table "restaurant_inspections", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

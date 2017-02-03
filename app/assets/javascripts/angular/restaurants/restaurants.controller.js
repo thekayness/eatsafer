@@ -4,7 +4,7 @@
     angular
         .module('app')
         .controller('RestaurantController', RestaurantController);
-
+    
     RestaurantController.$inject = [
         'restaurantsServ',  
         '$state', 
@@ -15,7 +15,8 @@
     function RestaurantController(
             restaurantsServ, 
             $state, 
-            $stateParams) {
+            $stateParams
+            ) {
 
         var vm = this;
         vm.restaurants = [];
@@ -24,7 +25,9 @@
                 restaurant_id : ''
             }
         };
-        // vm.filter = {};
+        vm.recent = [];
+
+        vm.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
 
         vm.searchName = function() {
             console.log(vm.nameParam);
@@ -76,10 +79,18 @@
                     vm.commentParams.author = "";
                 });
         }
-        // vm.refilterActive = function() {
-        //     restaurantsFilter.filterActive(vm.restaurants, vm.restaurantStatus);
-        // }
-        // vm.refilterActive();
+        // console.log('Params obj', $state);
+
+        //if state is recent or map, fetch recent
+        if($stateParams.page) {
+            console.log('whatup');
+            restaurantsServ.getRecentReports()
+                .then(function(results){
+                    vm.recent = results.data;
+                    console.log(vm.recent);
+                    return vm.recent;
+                });
+        }
 
     }
 })();
