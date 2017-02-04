@@ -31,6 +31,9 @@
 			})
 			.state('map',{
 				url: '/map',
+				params: {
+					map: 'yo'
+				},
 				templateUrl: 'angular/recent/map.html',
 				controller: 'RestaurantController as rest'
 			});

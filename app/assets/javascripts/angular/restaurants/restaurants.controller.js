@@ -27,7 +27,15 @@
         };
         vm.recent = [];
 
-        vm.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+        vm.options = {
+            zoom: 11,
+            center: new google.maps.LatLng(42.3601, -71.0589),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        
+        
+        vm.markers = [];
 
         vm.searchName = function() {
             console.log(vm.nameParam);
@@ -79,7 +87,27 @@
                     vm.commentParams.author = "";
                 });
         }
-        // console.log('Params obj', $state);
+        
+        var infoWindow = new google.maps.InfoWindow();
+
+        var createMarker = function (info){
+              
+            var marker = new google.maps.Marker({
+                map: vm.map,
+                position: new google.maps.LatLng(info.latitude, info.longitude),
+                title: info.name
+            });
+            marker.content = '<div class="infoWindowContent">' + info.name + '<br />' + info.latitude + ' E,' + info.longitude +  ' N, </div>';
+              
+            google.maps.event.addListener(marker, 'click', function(){
+                infoWindow.setContent('<h2>' + marker.title + '</h2>' + 
+                    marker.content);
+                infoWindow.open(vm.map, marker);
+            });
+              
+            vm.markers.push(marker);
+              
+        }  
 
         //if state is recent or map, fetch recent
         if($stateParams.page) {
@@ -88,9 +116,24 @@
                 .then(function(results){
                     vm.recent = results.data;
                     console.log(vm.recent);
+                    
                     return vm.recent;
                 });
         }
 
+        
+        if($stateParams.map) {
+            console.log('yoooooooo');
+            vm.map = new google.maps.Map(document.getElementById('map'), vm.options);
+            restaurantsServ.getRecentReports()
+                .then(function(results){
+                    vm.recent = results.data;
+                    console.log(vm.recent);
+                    vm.recent.forEach(function(restaurant) {
+                        createMarker(restaurant);
+                    });            
+                    return vm.recent;
+                });
+        }
     }
 })();

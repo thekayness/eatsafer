@@ -14,10 +14,8 @@
  *= require_tree .
  *= require_self
  */
-
- 
-1
-2
-3
-4
-.angular-google-map-container { height: 400px; }
+#map {
+    height:500px; 
+    width:500px; 
+/*    box-shadow: 3px 3px 10px gray;*/  
+    }
